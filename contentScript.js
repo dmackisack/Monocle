@@ -1,14 +1,25 @@
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+console.log("start");
+
+chrome.runtime.onMessage.addListener((request) => {
+      console.log("message");
     if (request.prompt) {
-      var paragraphs = document.querySelectorAll('p, span, div');
+      const paragraphs = document.querySelectorAll('p');
+      const max = 10;
+      var counter = 0;
       paragraphs.forEach(function(paragraph) {
+          if(counter >= max) {
+              return;
+          }
+          counter++;
+          //console.log(paragraph);
         paragraph.innerText = getRewrittenText(paragraph.innerText, request.prompt);
       });
+        console.log("done");
     }
   }
 );
 
 function getRewrittenText(originalText, prompt) {
-  return originalText;
+  return originalText.replaceAll("a", "🔥");
 }
+

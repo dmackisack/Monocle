@@ -1,11 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
-  var rewriteTextBtn = document.getElementById('rewriteTextBtn');
-  var promptSelector = document.getElementById('promptSelector');
+const rewriteButton = document.getElementById('rewriteTextBtn');
+const selector = document.getElementById('promptSelector');
+const bkg = chrome.extension.getBackgroundPage();
 
-  rewriteTextBtn.addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      var selectedPrompt = promptSelector.value;
-      chrome.tabs.sendMessage(tabs[0].id, {prompt: selectedPrompt});
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  rewriteButton.addEventListener('click', replaceText)
+})
+
+function replaceText(event) {
+  bkg.console.log('click');
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    var selectedPrompt = selector.value;
+    chrome.tabs.sendMessage(tabs[0].id, {prompt: selectedPrompt});
   });
-});
+}
