@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Text Rewriter",
-  "version": "1.0",
-  "description": "A Chrome extension to automatically rewrite text on a page",
+  "name": "Monocle",
+  "version": "0.1",
+  "description": "A Chrome extension to show articles through the lens of different political ideologies.",
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
