@@ -12,7 +12,8 @@
     }
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "https://api.openai.com/*"
   ],
   "icons": {
     "16": "images/icon16.png",
