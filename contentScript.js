@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener((request) => {
     if (request.prompt) {
       const paragraphs = document.querySelectorAll('p');
       const max = 10;
-      var counter = 0;
+      let counter = 0;
       paragraphs.forEach(function(paragraph) {
           if(counter >= max) {
               return;
